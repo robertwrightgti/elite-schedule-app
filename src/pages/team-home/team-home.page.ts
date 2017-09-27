@@ -15,5 +15,7 @@ export class TeamHomePage {
         this.team = this.navParams.data;
     }
 
-
+    goHome() {
+        this.nav.popToRoot();
+    }
 }
