@@ -7,7 +7,7 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { MyTeamsPage, TournamentsPage, TeamsPage, TeamDetailPage, GamePage } from '../pages/pages';
+import { MyTeamsPage, TournamentsPage, TeamsPage, TeamHomePage, TeamDetailPage, StandingsPage, GamePage } from '../pages/pages';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,9 @@ import { MyTeamsPage, TournamentsPage, TeamsPage, TeamDetailPage, GamePage } fro
     MyTeamsPage,
     TournamentsPage,
     TeamsPage,
+    TeamHomePage,
     TeamDetailPage,
+    StandingsPage,
     GamePage
   ],
   imports: [
@@ -28,7 +30,9 @@ import { MyTeamsPage, TournamentsPage, TeamsPage, TeamDetailPage, GamePage } fro
     MyTeamsPage,
     TournamentsPage,
     TeamsPage,
+    TeamHomePage,
     TeamDetailPage,
+    StandingsPage,
     GamePage
   ],
   providers: [
