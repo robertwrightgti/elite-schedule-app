@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import * as _ from 'lodash';
 
+import { GamePage } from '../pages';
 import { EliteApi } from '../../shared/shared';
 
 @Component({
@@ -55,5 +56,10 @@ export class TeamDetailPage {
         else {
             return "";
         }
+    }
+
+    gameClicked($event, game) {
+        let sourceGame = this.tourneyData.games.find(g => g.id === game.gameId);
+        this.nav.parent.parent.push(GamePage, sourceGame);
     }
 }
