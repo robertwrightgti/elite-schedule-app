@@ -1,0 +1,39 @@
+
+installing prerequisites
+------------------------
+install node from nodejs
+http://bit.ly/1NuDPYj (video on getting node)
+
+npm install -g ionic
+https://ionicframework.com/docs/intro/installation/
+
+
+
+create new project
+------------------
+ionic start ionic-tabs-app tabs --ts
+ionic start elite-schedule-app sidemenu --ts
+code . (opens folder in vs code)
+
+
+
+running the project
+-------------------
+ionic serve (in browser)
+
+
+
+install lodash and typescript support
+-------------------------------------
+npm install lodash --save
+npm install -g typings
+typings install lodash
+
+
+
+ionic reference
+---------------
+Lifecycle events
+https://ionicframework.com/docs/api/navigation/NavController/
+
+
