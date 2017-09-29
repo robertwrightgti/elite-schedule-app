@@ -1,4 +1,7 @@
-pooky
+
+pooky is a bear
+
+
 installing prerequisites
 ------------------------
 install node from nodejs
