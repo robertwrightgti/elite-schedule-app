@@ -18,6 +18,7 @@ export class TeamDetailPage {
     team: any = {};
     teamStanding: any = {};
     private tourneyData: any;
+    useDateFilter = false;
     
     constructor(
         private nav: NavController, 
@@ -71,6 +72,10 @@ export class TeamDetailPage {
     }
 
     dateChanged() {
-        this.games = _.filter(this.allGames, g => moment(g.time).isSame(this.dateFilter, 'day'));
+        if (this.useDateFilter) {
+            this.games = _.filter(this.allGames, g => moment(g.time).isSame(this.dateFilter, 'day'));
+        } else {
+            this.games = this.allGames;
+        }        
     }
 }
