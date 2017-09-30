@@ -31,6 +31,14 @@ typings install lodash
 
 
 
+install moment (for dates)
+--------------------------
+npm install moment --save
+
+
+
+
+
 ionic reference
 ---------------
 Lifecycle events
