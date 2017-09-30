@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 
-import { MyTeamsPage, TournamentsPage } from '../pages/pages';
+import { MyTeamsPage } from '../pages/pages';
 import { EliteApi } from '../shared/shared';
 
 @Component({
@@ -19,17 +19,8 @@ export class MyApp {
 
   rootPage: any = MyTeamsPage;
 
-  //pages: Array<{title: string, component: any}>;
-
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    // this.pages = [
-    //   { title: 'Home', component: HomePage },
-    //   { title: 'List', component: ListPage }
-    // ];
-
   }
 
   initializeApp() {
@@ -42,11 +33,6 @@ export class MyApp {
   }
 
   goHome() {
-    //this.nav.push(MyTeamsPage);
     this.nav.popToRoot();
-  }
-
-  goToTournaments() {
-    this.nav.push(TournamentsPage);
   }
 }
