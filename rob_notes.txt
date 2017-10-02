@@ -8,7 +8,6 @@ npm install -g ionic
 https://ionicframework.com/docs/intro/installation/
 
 
-
 create new project
 ------------------
 ionic start ionic-tabs-app tabs --ts
@@ -16,11 +15,9 @@ ionic start elite-schedule-app sidemenu --ts
 code . (opens folder in vs code)
 
 
-
 running the project
 -------------------
 ionic serve (in browser)
-
 
 
 install lodash and typescript support
@@ -30,12 +27,14 @@ npm install -g typings
 typings install lodash
 
 
-
 install moment (for dates)
 --------------------------
 npm install moment --save
 
 
+install storage (for saving data)
+---------------------------------
+npm install @ionic/storage --save --save-exact
 
 
 
