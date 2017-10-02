@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, NavController, NavParams } from 'ionic-angular';
+import { AlertController, NavController, NavParams, ToastController } from 'ionic-angular';
 
 import * as _ from 'lodash';
 import * as moment from 'moment';
@@ -25,6 +25,7 @@ export class TeamDetailPage {
         private alertController: AlertController,
         private nav: NavController, 
         private navParams: NavParams,
+        private toastController: ToastController,
         private eliteApi: EliteApi
     ){
         
@@ -102,6 +103,12 @@ export class TeamDetailPage {
                         handler: () => {
                             this.isFollowing = false;
                             // TODO: Persist data
+                            let toast = this.toastController.create({
+                                message: "You have unfollowed this team",
+                                duration: 2000,
+                                position: "bottom"
+                            });
+                            toast.present();
                         }
                     },
                     {
