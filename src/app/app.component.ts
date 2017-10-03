@@ -5,21 +5,28 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 
 import { MyTeamsPage } from '../pages/pages';
-import { EliteApi } from '../shared/shared';
+import { EliteApi, UserSettings } from '../shared/shared';
 
 @Component({
   templateUrl: 'app.html',
   providers: [
     EliteApi,
+    UserSettings,
     HttpModule
   ]
 })
+
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = MyTeamsPage;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public eliteApi: EliteApi,
+    public userSettings: UserSettings,
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen) {
     this.initializeApp();
   }
 

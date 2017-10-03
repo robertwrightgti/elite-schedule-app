@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 import * as moment from 'moment';
 
 import { GamePage } from '../pages';
-import { EliteApi } from '../../shared/shared';
+import { EliteApi, UserSettings } from '../../shared/shared';
 
 @Component({
     templateUrl: 'team-detail.page.html'
@@ -26,7 +26,8 @@ export class TeamDetailPage {
         private nav: NavController, 
         private navParams: NavParams,
         private toastController: ToastController,
-        private eliteApi: EliteApi
+        private eliteApi: EliteApi,
+        private userSettings: UserSettings
     ){
         
     }
@@ -55,6 +56,7 @@ export class TeamDetailPage {
 
         this.allGames = this.games;
         this.teamStanding = _.find(this.tourneyData.standings, { 'teamId': this.team.id });
+        this.userSettings.isFavoriteTeam(this.team.id).then(value => this.isFollowing = value);
     }
 
     getScoreDisplay(isTeam1, team1Score, team2Score) {
@@ -91,9 +93,7 @@ export class TeamDetailPage {
     }
 
     toggleFollow() {
-        console.log("toggle")
         if(this.isFollowing) {
-            console.log("following")
             let confirm = this.alertController.create({
                 title: "Unfollow?",
                 message: "Are you sure you want to unfollow?",
@@ -103,6 +103,8 @@ export class TeamDetailPage {
                         handler: () => {
                             this.isFollowing = false;
                             // TODO: Persist data
+                            this.userSettings.unfavoriteTeam(this.team);
+
                             let toast = this.toastController.create({
                                 message: "You have unfollowed this team",
                                 duration: 2000,
@@ -118,10 +120,13 @@ export class TeamDetailPage {
             });
             confirm.present();
         } else {
-            console.log("not following")
             this.isFollowing = true;
             // TODO: Persist data
-
+            this.userSettings.favoriteTeam(
+                this.team, 
+                this.tourneyData.tournament.id, 
+                this.tourneyData.tournament.tournamentName
+            )
         }
     }
 }

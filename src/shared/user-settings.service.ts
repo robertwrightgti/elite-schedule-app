@@ -17,13 +17,27 @@ export class UserSettings {
             tournamentName: tournamentName
         };
 
-        this.storage.set(team.id.toString(), JSON.stringify(item));
-            // .then(data => {
-            //     this.ev
-            // });
+        console.log(item)
+
+        return new Promise(resolve => {
+            this.storage.set(team.id.toString(), JSON.stringify(item)).then(() => {
+                //this.events.publish('favorites:changed');
+                resolve();
+            });
+        });
     }
 
     unfavoriteTeam(team) {
-        this.storage.remove(team.id.toString());
+        return new Promise(resolve => {
+            this.storage.remove(team.id.toString()).then(() => {
+                //this.events.publish('favorites:changed');
+                resolve();
+            });
+        });
     }
+
+    isFavoriteTeam(teamId) : Promise<boolean> {
+        return new Promise(resolve => resolve(this.storage.get(teamId.toString()).then(value => value ? true : false)));
+    }
+
 }
