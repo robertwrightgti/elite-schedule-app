@@ -35,7 +35,9 @@ npm install moment --save
 install storage (for saving data)
 ---------------------------------
 npm install @ionic/storage --save --save-exact
-
+    to see stored data
+        open browser debug console, Application tab
+        Storage / Web SQL / _ionicstorage / _ionickv
 
 
 ionic reference

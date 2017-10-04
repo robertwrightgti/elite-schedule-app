@@ -102,7 +102,7 @@ export class TeamDetailPage {
                         text: "Yes",
                         handler: () => {
                             this.isFollowing = false;
-                            // TODO: Persist data
+                            // Persist data
                             this.userSettings.unfavoriteTeam(this.team);
 
                             let toast = this.toastController.create({
@@ -121,7 +121,7 @@ export class TeamDetailPage {
             confirm.present();
         } else {
             this.isFollowing = true;
-            // TODO: Persist data
+            // Persist data
             this.userSettings.favoriteTeam(
                 this.team, 
                 this.tourneyData.tournament.id, 

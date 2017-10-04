@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import * as _ from 'lodash';
 
 @Injectable()
 export class UserSettings {
@@ -16,9 +17,6 @@ export class UserSettings {
             tournamentId: tournamentId,
             tournamentName: tournamentName
         };
-
-        console.log(item)
-
         return new Promise(resolve => {
             this.storage.set(team.id.toString(), JSON.stringify(item)).then(() => {
                 //this.events.publish('favorites:changed');
@@ -40,4 +38,15 @@ export class UserSettings {
         return new Promise(resolve => resolve(this.storage.get(teamId.toString()).then(value => value ? true : false)));
     }
 
+    getAllFavorites() : Promise<any[]> {
+        return new Promise(resolve => {
+            let results = [];
+            this.storage.forEach(data => {
+                console.log("*** inside foreach", data);
+                results.push(JSON.parse(data));
+            });
+            return resolve(results);
+        });        
+    }
+    
 }
