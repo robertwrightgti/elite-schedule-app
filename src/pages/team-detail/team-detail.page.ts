@@ -57,7 +57,6 @@ export class TeamDetailPage {
         this.allGames = this.games;
         this.teamStanding = _.find(this.tourneyData.standings, { 'teamId': this.team.id });
         this.tournament = this.tourneyData.tournament;
-        console.log("TTTT", this.tournament)
         this.userSettings.isFavoriteTeam(this.team.id).then(value => this.isFollowing = value);
     }
 
