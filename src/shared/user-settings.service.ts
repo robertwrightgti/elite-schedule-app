@@ -44,7 +44,6 @@ export class UserSettings {
         return new Promise(resolve => {
             let results = [];
             this.storage.forEach(data => {
-                console.log("*** inside foreach", data);
                 results.push(JSON.parse(data));
             });
             return resolve(results);

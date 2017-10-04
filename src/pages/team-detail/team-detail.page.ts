@@ -19,6 +19,7 @@ export class TeamDetailPage {
     team: any = {};
     teamStanding: any = {};
     private tourneyData: any;
+    tournament: any = {};
     useDateFilter = false;
     
     constructor(
@@ -35,7 +36,6 @@ export class TeamDetailPage {
     ionViewDidLoad() {
         this.team = this.navParams.data;
         this.tourneyData = this.eliteApi.getCurrentTourney();
-
         this.games = _.chain(this.tourneyData.games)
                     .filter(g => g.team1Id === this.team.id || g.team2Id === this.team.id)
                     .map(g => {
@@ -56,6 +56,8 @@ export class TeamDetailPage {
 
         this.allGames = this.games;
         this.teamStanding = _.find(this.tourneyData.standings, { 'teamId': this.team.id });
+        this.tournament = this.tourneyData.tournament;
+        console.log("TTTT", this.tournament)
         this.userSettings.isFavoriteTeam(this.team.id).then(value => this.isFollowing = value);
     }
 
@@ -128,5 +130,12 @@ export class TeamDetailPage {
                 this.tourneyData.tournament.tournamentName
             )
         }
+    }
+
+    refreshAll(refresher) {
+        this.eliteApi.refreshCurrentTourney().subscribe(() => {
+            refresher.complete();
+            this.ionViewDidLoad();
+        });
     }
 }
