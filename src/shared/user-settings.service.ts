@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import * as _ from 'lodash';
 
@@ -6,7 +7,8 @@ import * as _ from 'lodash';
 export class UserSettings {
 
     constructor(
-        public storage: Storage
+        public storage: Storage,
+        private events: Events
     ){
 
     }
@@ -19,7 +21,7 @@ export class UserSettings {
         };
         return new Promise(resolve => {
             this.storage.set(team.id.toString(), JSON.stringify(item)).then(() => {
-                //this.events.publish('favorites:changed');
+                this.events.publish("favorites:changed");
                 resolve();
             });
         });
@@ -28,7 +30,7 @@ export class UserSettings {
     unfavoriteTeam(team) {
         return new Promise(resolve => {
             this.storage.remove(team.id.toString()).then(() => {
-                //this.events.publish('favorites:changed');
+                this.events.publish("favorites:changed");
                 resolve();
             });
         });
@@ -48,5 +50,5 @@ export class UserSettings {
             return resolve(results);
         });        
     }
-    
+
 }
