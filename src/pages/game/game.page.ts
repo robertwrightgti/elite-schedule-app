@@ -21,12 +21,24 @@ export class GamePage {
 
     ionViewDidLoad(){
         this.game = this.navParams.data;
+        this.game.gameTime = Date.parse(this.game.time);
     }
 
     teamTapped(teamId) {
         let tourneyData = this.eliteApi.getCurrentTourney();
-        // console.log("tourneyData", tourneyData)
         let team = tourneyData.teams.find(t => t.id === teamId);
         this.nav.push(TeamHomePage, team);
+    }
+
+    goToDirections() {
+        //todo!
+    }
+
+    goToMap() {
+        //todo!
+    }
+
+    isWinner(score1, score2) {
+        return Number(score1) > Number(score2) ? 'secondary' : '';
     }
 }
