@@ -12,3 +12,8 @@ agm-map {
     opacity: 0;
     transition: opacity 150ms ease-in;
 }
+
+button[fab4].fab-map {
+    top: calc(100% - 90px);
+    z-index: 50;
+}
