@@ -6,11 +6,10 @@
 
 <ion-content class="map-page">
     <ion-list>
-        <button ion-button fab fab-left fab-bottom class="fab-map" (click)="getDirections()">
+        <!-- <button ion-button fab fab-left fab-bottom class="fab-map" (click)="getDirections()">
             <ion-icon name="navigate"></ion-icon>
-        </button>
-
-         <!-- this creates a google map on the page with the given lat/lng from -->
+        </button> -->
+        <!-- this creates a google map on the page with the given lat/lng from -->
         <!-- the component as the initial center of the map: -->
         <agm-map id="map" 
             [latitude]="map.lat" 
@@ -22,6 +21,6 @@
                 [longitude]="map.lng"
                 [label]="map.markerLabel">
             </agm-marker>
-        </agm-map>
+        </agm-map>        
     </ion-list>
 </ion-content>

@@ -30,6 +30,7 @@ export class MapPage {
     }
 
     getDirections() {
+        console.log("directions")
         window.location = `geo:${this.map.lat},${this.map.lng};u=35`;
     }
 }

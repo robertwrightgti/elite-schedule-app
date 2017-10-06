@@ -13,7 +13,14 @@ agm-map {
     transition: opacity 150ms ease-in;
 }
 
-button[fab4].fab-map {
-    top: calc(100% - 90px);
+// button[fab4].fab-map {
+//     //top: calc(100vh - 90px);
+//     top: 20px;
+//     border: 10px solid red;
+//     z-index: 50;
+// }
+
+button.fab-map {
+    top: calc(100vh - 90px);
     z-index: 50;
 }
