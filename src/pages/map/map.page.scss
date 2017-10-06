@@ -1,0 +1,14 @@
+// .map-page #mappy {
+//     width: 100%;
+//     height: 100%;
+//     opacity: 0;
+//     transition: opacity 150ms ease-in;
+// }
+
+
+agm-map {
+    min-height: 300px;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+}
